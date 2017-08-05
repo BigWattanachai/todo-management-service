@@ -23,7 +23,6 @@ class TodoServiceImpl(val todoRepo: TodoRepo) : TodoService {
     override fun updateTodo(id: Long, todo: Todo): Todo {
         val result = todoRepo.findOne(id) ?: throw NotFoundException("No Todo with id $id")
         result.title = todo.title
-        result.todoItems = todo.todoItems
         return todoRepo.saveAndFlush(result)
     }
 
