@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: todo-management-service
+    version: 0.0.1
+  profiles.active: sandbox
+
+---
+spring:
+  profiles: sandbox
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost/todo?useUnicode=true&characterEncoding=utf8
+    username: postgres
+    password: postgres
+
+  jpa:
+    generate-ddl: true
+
+---
+spring:
+  profiles: develop
+  datasource:
+    url: jdbc:h2:mem:demo;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    database: H2
+    openInView: false
+    show_sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
