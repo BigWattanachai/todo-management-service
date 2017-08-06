@@ -2,7 +2,7 @@ spring:
   application:
     name: todo-management-service
     version: 0.0.1
-  profiles.active: sandbox
+  profiles.active: develop
 
 ---
 spring:
